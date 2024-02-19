@@ -8,7 +8,16 @@ describe('Sign In Test', () => {
             headless: false
         })
 
-        const context = await browser.newContext();
+        const context = await browser.newContext({
+            recordVideo: {
+                dir: "./videos",
+                size: {
+                    width: 800,
+                    height: 600  
+                }
+
+            }
+        });
 
         // Open a new page
         const page = await context.newPage();
@@ -23,7 +32,7 @@ describe('Sign In Test', () => {
         await page.getByRole('textbox', { name: 'Enter registered email' }).click();
         await page.getByRole('textbox', { name: 'Enter registered email' }).fill('creativestrikers@gmail.com');
         await page.getByRole('textbox', { name: 'Enter registered email' }).press('Tab');
-        await page.getByPlaceholder('Enter password').fill('123');
+        await page.getByPlaceholder('Enter password').fill('123@8');
         await page.getByPlaceholder('Enter password').press('Enter');
 
         await page.getByRole('link', { name: 'Work-Space' }).click();
