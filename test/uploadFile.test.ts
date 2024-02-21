@@ -26,6 +26,10 @@ describe('Upload File', () => {
         const context = await browser.newContext();
         const page = await context.newPage();
         await page.goto('https://the-internet.herokuapp.com/upload');
+
+        /*
+        Here, we are adding on as a listener, to handle the event.
+        */
         page.on("filechooser", async (filechooser) => {
             //await afilechooser.isMultiple();
             await filechooser.setFiles([filePath0, filePath1])
