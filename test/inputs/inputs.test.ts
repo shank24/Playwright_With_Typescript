@@ -14,5 +14,5 @@ describe("Learn how to handle input fields", () => {
         await page.goto('https://www.sendgb.com/');
     })
 
-    test()
+
 })
